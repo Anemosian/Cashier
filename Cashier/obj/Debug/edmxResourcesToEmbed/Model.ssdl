@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CashierDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblProducts">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ProductType" Type="int" Nullable="false" />
+    <Property Name="Image" Type="image" />
+  </EntityType>
+  <EntityType Name="TblProductTypes">
+    <Key>
+      <PropertyRef Name="ProductType" />
+    </Key>
+    <Property Name="ProductType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TblTransactionItems">
+    <Key>
+      <PropertyRef Name="TransactionItemId" />
+    </Key>
+    <Property Name="TransactionItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblTransactions">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="TransactionTime" Type="time" Precision="7" />
+  </EntityType>
+  <Association Name="FK_ProductType">
+    <End Role="TblProductTypes" Type="Self.TblProductTypes" Multiplicity="1" />
+    <End Role="TblProducts" Type="Self.TblProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProductTypes">
+        <PropertyRef Name="ProductType" />
+      </Principal>
+      <Dependent Role="TblProducts">
+        <PropertyRef Name="ProductType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductTblTransactionItem">
+    <End Role="TblProducts" Type="Self.TblProducts" Multiplicity="1" />
+    <End Role="TblTransactionItems" Type="Self.TblTransactionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProducts">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="TblTransactionItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblTransactionTblTransactionItem">
+    <End Role="TblTransactions" Type="Self.TblTransactions" Multiplicity="1" />
+    <End Role="TblTransactionItems" Type="Self.TblTransactionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblTransactions">
+        <PropertyRef Name="TransactionID" />
+      </Principal>
+      <Dependent Role="TblTransactionItems">
+        <PropertyRef Name="TransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CashierDBModelStoreContainer">
+    <EntitySet Name="TblProducts" EntityType="Self.TblProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblProductTypes" EntityType="Self.TblProductTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblTransactionItems" EntityType="Self.TblTransactionItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblTransactions" EntityType="Self.TblTransactions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ProductType" Association="Self.FK_ProductType">
+      <End Role="TblProductTypes" EntitySet="TblProductTypes" />
+      <End Role="TblProducts" EntitySet="TblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductTblTransactionItem" Association="Self.FK_TblProductTblTransactionItem">
+      <End Role="TblProducts" EntitySet="TblProducts" />
+      <End Role="TblTransactionItems" EntitySet="TblTransactionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblTransactionTblTransactionItem" Association="Self.FK_TblTransactionTblTransactionItem">
+      <End Role="TblTransactions" EntitySet="TblTransactions" />
+      <End Role="TblTransactionItems" EntitySet="TblTransactionItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

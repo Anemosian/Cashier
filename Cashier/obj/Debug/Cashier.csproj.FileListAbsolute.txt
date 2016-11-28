@@ -1,0 +1,17 @@
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\Cashier.exe.config
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.AddProduct.resources
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\Cashier.exe
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\Cashier.pdb
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\EntityFramework.dll
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\EntityFramework.xml
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.exe
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.pdb
+c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.Home.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.ViewProducts.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.Cashier.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.PayDialogue.resources
