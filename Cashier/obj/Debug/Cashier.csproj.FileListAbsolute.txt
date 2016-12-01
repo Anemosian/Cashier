@@ -15,3 +15,7 @@ c:\users\user\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Ca
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.ViewProducts.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.Cashier.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.PayDialogue.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\MySql.Data.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\MySql.Data.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\MySql.Data.Entity.EF6.xml

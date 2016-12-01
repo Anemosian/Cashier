@@ -36,7 +36,6 @@
     </Key>
     <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TransactionDate" Type="DateTime" Precision="3" />
-    <Property Name="TransactionTime" Type="Time" Precision="7" />
     <NavigationProperty Name="TblTransactionItems" Relationship="Self.FK_TblTransactionTblTransactionItem" FromRole="TblTransactions" ToRole="TblTransactionItems" />
   </EntityType>
   <Association Name="FK_ProductType">

@@ -22,15 +22,15 @@ namespace Cashier
         {
             InitializeComponent();
 
-            //dataGridView1.DataSource = cdbe.TblProducts;
+            dataGridView1.DataSource = cdbe.TblProducts.ToArray();
 
-            //dataGridView1.Columns["ProductType"].Visible = false;
-            //dataGridView1.Columns["TblProductType"].Visible = false;
-            //dataGridView1.Columns["TblTransactionItems"].Visible = false;
+            dataGridView1.Columns["ProductType"].Visible = false;
+            dataGridView1.Columns["TblProductType"].Visible = false;
+            dataGridView1.Columns["TblTransactionItems"].Visible = false;
 
-            //cboFilter.DataSource = cdbe.TblProductTypes.ToList();
-            //cboFilter.DisplayMember = "Description";
-            //cboFilter.ValueMember = "ProductType";
+            cboFilter.DataSource = cdbe.TblProductTypes.ToList();
+            cboFilter.DisplayMember = "Description";
+            cboFilter.ValueMember = "ProductType";
         }
 
         private void FilterList(object sender, EventArgs e)

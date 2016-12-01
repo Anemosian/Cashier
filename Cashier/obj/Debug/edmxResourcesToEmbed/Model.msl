@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CashierDBModelStoreContainer" CdmEntityContainer="CashierDBEntities">
     <EntitySetMapping Name="TblProducts">
-      <EntityTypeMapping TypeName="CashierDBModel.TblProduct">
+      <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblProduct)">
         <MappingFragment StoreEntitySet="TblProducts">
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
@@ -13,7 +13,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TblProductTypes">
-      <EntityTypeMapping TypeName="CashierDBModel.TblProductType">
+      <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblProductType)">
         <MappingFragment StoreEntitySet="TblProductTypes">
           <ScalarProperty Name="ProductType" ColumnName="ProductType" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -21,7 +21,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TblTransactionItems">
-      <EntityTypeMapping TypeName="CashierDBModel.TblTransactionItem">
+      <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblTransactionItem)">
         <MappingFragment StoreEntitySet="TblTransactionItems">
           <ScalarProperty Name="TransactionItemId" ColumnName="TransactionItemId" />
           <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
@@ -30,11 +30,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TblTransactions">
-      <EntityTypeMapping TypeName="CashierDBModel.TblTransaction">
+      <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblTransaction)">
         <MappingFragment StoreEntitySet="TblTransactions">
           <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
           <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -25,9 +25,9 @@ namespace Cashier
         {
             InitializeComponent();
 
-            //cboCategory.DataSource = cdbe.TblProductTypes.ToList();
-            //cboCategory.DisplayMember = "Description";
-            //cboCategory.ValueMember = "ProductType";
+            cboCategory.DataSource = cdbe.TblProductTypes.ToList();
+            cboCategory.DisplayMember = "Description";
+            cboCategory.ValueMember = "ProductType";
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -51,19 +51,19 @@ namespace Cashier
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //TblProduct product = new TblProduct();
+            TblProduct product = new TblProduct();
 
-            //product.Description = txtDescription.Text;
+            product.Description = txtDescription.Text;
 
-            //product.Price = decimal.Parse(txtPrice.Text);
+            product.Price = decimal.Parse(txtPrice.Text);
 
-            //product.Image = bytePicData;
+            product.Image = bytePicData;
 
-            //product.ProductType = (int)cboCategory.SelectedValue;
+            product.ProductType = (int)cboCategory.SelectedValue;
 
-            //cdbe.TblProducts.Add(product);
+            cdbe.TblProducts.Add(product);
 
-            //cdbe.SaveChanges();
+            cdbe.SaveChanges();
 
         }
     }

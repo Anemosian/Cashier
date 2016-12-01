@@ -44,44 +44,44 @@ namespace Cashier
 
         private void CreateTabbedPanel()
         {
-           // using (CashierDBEntities cdbe = new CashierDBEntities())
-           // {
-                //foreach (TblProductType pt in cdbe.TblProductTypes)
-                //{
-                //    tabControl1.TabPages.Add(pt.ProductType.ToString(), pt.Description);
-                //}
-          //  }
-            
+            using (CashierDBEntities cdbe = new CashierDBEntities())
+            {
+                foreach (TblProductType pt in cdbe.TblProductTypes)
+                {
+                    tabControl1.TabPages.Add(pt.ProductType.ToString(), pt.Description);
+                }
+            }
+
         }
         
         private void populateTabs()
         {
             int i = 1;
 
-            //foreach(TabPage tp in tabControl1.TabPages)
-            //{
-            //    var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
-            //    ObjectQuery<TblProduct> filteredProduct = objctx.CreateQuery<TblProduct>("SELECT p FROM TblProducts AS p WHERE p.ProductType = " + i);
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
+                ObjectQuery<TblProduct> filteredProduct = objctx.CreateQuery<TblProduct>("SELECT p FROM TblProducts AS p WHERE p.ProductType = " + i);
 
-            //    FlowLayoutPanel flp = new FlowLayoutPanel();
+                FlowLayoutPanel flp = new FlowLayoutPanel();
 
-            //    flp.Dock = DockStyle.Fill;
+                flp.Dock = DockStyle.Fill;
 
-            //    foreach (TblProduct tproduct in filteredProduct)
-            //    {
-            //        Button btn = new Button();
+                foreach (TblProduct tproduct in filteredProduct)
+                {
+                    Button btn = new Button();
 
-            //        btn.Size = new Size(100, 100);
-            //        btn.Text = tproduct.Description;
-            //        btn.Tag = tproduct;
+                    btn.Size = new Size(100, 100);
+                    btn.Text = tproduct.Description;
+                    btn.Tag = tproduct;
 
-            //        btn.Click += new EventHandler(UpdateProductList);
+                    btn.Click += new EventHandler(UpdateProductList);
 
-            //        flp.Controls.Add(btn);
-            //    }
-            //    tp.Controls.Add(flp);
-            //    i++;
-            //}
+                    flp.Controls.Add(btn);
+                }
+                tp.Controls.Add(flp);
+                i++;
+            }
         }
 
         private void UpdateProductList(object sender, EventArgs e)
