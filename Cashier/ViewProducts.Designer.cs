@@ -80,8 +80,8 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cboFilter;
-        private CashierDBDataSet cashierDBDataSet;
+        //private CashierDBDataSet cashierDBDataSet;
         private System.Windows.Forms.BindingSource tblProductsBindingSource;
-        private CashierDBDataSetTableAdapters.TblProductsTableAdapter tblProductsTableAdapter;
+        //private CashierDBDataSetTableAdapters.TblProductsTableAdapter tblProductsTableAdapter;
     }
 }
