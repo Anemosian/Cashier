@@ -121,7 +121,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(112, 226);
+            this.btnSave.Location = new System.Drawing.Point(112, 194);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 239);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.lblIcon);
@@ -149,7 +149,7 @@
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblDescription);
             this.Name = "AddProduct";
-            this.Text = "Form1";
+            this.Text = "Add Product";
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

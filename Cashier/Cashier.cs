@@ -39,49 +39,49 @@ namespace Cashier
 
         private void Cashier_Load(object sender, EventArgs e)
         {
-           
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
         }
 
         private void CreateTabbedPanel()
         {
-            using (CashierDBEntities cdbe = new CashierDBEntities())
+            foreach (TblProductType pt in cdbe.TblProductTypes)
             {
-                foreach (TblProductType pt in cdbe.TblProductTypes)
-                {
-                    tabControl1.TabPages.Add(pt.ProductType.ToString(), pt.Description);
-                }
+                tabControl1.TabPages.Add(pt.ProductType.ToString(), pt.Description);
             }
-
         }
-        
+
         private void populateTabs()
         {
-            int i = 1;
+            //using (CashierDBEntities cdbe = new CashierDBEntities())
+            //{
+                int i = 1;
 
-            foreach (TabPage tp in tabControl1.TabPages)
-            {
-                var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
-                ObjectQuery<TblProduct> filteredProduct = objctx.CreateQuery<TblProduct>("SELECT p FROM TblProducts AS p WHERE p.ProductType = " + i);
-
-                FlowLayoutPanel flp = new FlowLayoutPanel();
-
-                flp.Dock = DockStyle.Fill;
-
-                foreach (TblProduct tproduct in filteredProduct)
+                foreach (TabPage tp in tabControl1.TabPages)
                 {
-                    Button btn = new Button();
+                    var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
+                    ObjectQuery<TblProduct> filteredProduct = objctx.CreateQuery<TblProduct>("SELECT p FROM TblProducts AS p WHERE p.ProductType = " + i);
 
-                    btn.Size = new Size(100, 100);
-                    btn.Text = tproduct.Description;
-                    btn.Tag = tproduct;
+                    FlowLayoutPanel flp = new FlowLayoutPanel();
 
-                    btn.Click += new EventHandler(UpdateProductList);
+                    flp.Dock = DockStyle.Fill;
 
-                    flp.Controls.Add(btn);
+                    //foreach (TblProduct tproduct in filteredProduct)
+                    //{
+                    //    Button btn = new Button();
+
+                    //    btn.Size = new Size(100, 100);
+                    //    btn.Text = tproduct.Description;
+                    //    btn.Tag = tproduct;
+
+                    //    btn.Click += new EventHandler(UpdateProductList);
+
+                    //    flp.Controls.Add(btn);
+                    //}
+                    tp.Controls.Add(flp);
+                    i++;
                 }
-                tp.Controls.Add(flp);
-                i++;
-            }
+            //}
         }
 
         private void UpdateProductList(object sender, EventArgs e)
@@ -145,6 +145,17 @@ namespace Cashier
 
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            clock.Text = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
         }
     }
 }

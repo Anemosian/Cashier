@@ -32,7 +32,23 @@ namespace Cashier
         private void button1_Click_1(object sender, EventArgs e)
         {
             Cashier cashier = new Cashier();
-            cashier.Show();
+            cashier.ShowDialog();
+            
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

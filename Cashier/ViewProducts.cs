@@ -16,8 +16,6 @@ namespace Cashier
     {
         private CashierDBEntities cdbe = new CashierDBEntities();
             
-
-
         public ViewProducts()
         {
             InitializeComponent();
@@ -35,7 +33,7 @@ namespace Cashier
 
         private void FilterList(object sender, EventArgs e)
         {
-            string sqlString = "SELECT VALUE st FROM CoffeeShopDBEntities.tblProduct AS st WHERE st.ProductType == '" + cboFilter.SelectedValue + "'";
+            string sqlString = "SELECT VALUE st FROM CashierDBEntities.TblProducts AS st WHERE st.ProductType == " + cboFilter.SelectedValue;
             var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
 
             ObjectQuery<TblProduct> filteredProducts = objctx.CreateQuery<TblProduct>(sqlString);

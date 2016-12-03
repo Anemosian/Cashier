@@ -65,6 +65,12 @@ namespace Cashier
 
             cdbe.SaveChanges();
 
+            MessageBox.Show("Item Saved!");
+
+            this.Close();
+
+
+
         }
     }
 }
