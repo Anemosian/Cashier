@@ -196,7 +196,8 @@ namespace Cashier
             transaction.TransactionDate = DateTime.Now;
 
             if (e.PaymentSuccess == true) {
-                foreach(TblProduct product in productsChosen)
+                
+                foreach (TblProduct product in productsChosen)
                 {
                     transaction.TblTransactionItems.Add(new TblTransactionItem() { ProductId = product.ProductId});
                 }

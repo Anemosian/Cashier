@@ -54,10 +54,12 @@ namespace Cashier
 
             if (total > 0) {
                 MessageBox.Show("Payment lacks " + String.Format(new CultureInfo("en-PH"), "{0:c}", total));
+                PaymentMade(this, new PaymentMadeEventArgs() { PaymentSuccess = false });
             }
             else
             {
                 MessageBox.Show("Please give " + String.Format(new CultureInfo("en-PH"), "{0:c}", (-1*total)) + " as change.");
+                PaymentMade(this, new PaymentMadeEventArgs() { PaymentSuccess = true });
                 this.Hide();
 
             }
