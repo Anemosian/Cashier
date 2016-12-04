@@ -44,9 +44,10 @@
             // 
             // listProductsChosen
             // 
-            this.listProductsChosen.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listProductsChosen.DataSource = this.cashierDBDataSetBindingSource;
+            this.listProductsChosen.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listProductsChosen.FormattingEnabled = true;
-            this.listProductsChosen.ItemHeight = 14;
+            this.listProductsChosen.ItemHeight = 21;
             this.listProductsChosen.Location = new System.Drawing.Point(685, 66);
             this.listProductsChosen.Name = "listProductsChosen";
             this.listProductsChosen.Size = new System.Drawing.Size(325, 340);
@@ -115,9 +116,9 @@
             // 
             this.clock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clock.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clock.Location = new System.Drawing.Point(679, 16);
+            this.clock.Location = new System.Drawing.Point(685, 16);
             this.clock.Name = "clock";
-            this.clock.Size = new System.Drawing.Size(285, 37);
+            this.clock.Size = new System.Drawing.Size(279, 37);
             this.clock.TabIndex = 1;
             this.clock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

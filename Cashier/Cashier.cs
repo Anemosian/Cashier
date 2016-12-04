@@ -26,7 +26,7 @@ namespace Cashier
             set
             {
                 transactionTotal = value;
-                txtTotal.Text = String.Format("{0:c}",transactionTotal);
+                txtTotal.Text = String.Format(new CultureInfo("en-PH"),"{0:c}",transactionTotal);
             }
         }
 
@@ -35,6 +35,7 @@ namespace Cashier
             InitializeComponent();
             CreateTabbedPanel();
             populateTabs();
+            listProductsChosen.DataSource = productsChosen;
         }
 
         private void Cashier_Load(object sender, EventArgs e)
@@ -53,35 +54,33 @@ namespace Cashier
 
         private void populateTabs()
         {
-            //using (CashierDBEntities cdbe = new CashierDBEntities())
-            //{
-                int i = 1;
+            int i = 1;
 
-                foreach (TabPage tp in tabControl1.TabPages)
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                FlowLayoutPanel flp = new FlowLayoutPanel();
+
+                flp.Dock = DockStyle.Fill;
+
+                foreach (TblProduct tproduct in cdbe.TblProducts)
                 {
-                    var objctx = (cdbe as IObjectContextAdapter).ObjectContext;
-                    ObjectQuery<TblProduct> filteredProduct = objctx.CreateQuery<TblProduct>("SELECT p FROM TblProducts AS p WHERE p.ProductType = " + i);
+                    if (tproduct.ProductType == i)
+                    {
+                        Button btn = new Button();
 
-                    FlowLayoutPanel flp = new FlowLayoutPanel();
+                        btn.Size = new Size(100, 100);
+                        btn.Text = tproduct.Description;
+                        btn.Tag = tproduct;
 
-                    flp.Dock = DockStyle.Fill;
+                        btn.Click += new EventHandler(UpdateProductList);
 
-                    //foreach (TblProduct tproduct in filteredProduct)
-                    //{
-                    //    Button btn = new Button();
-
-                    //    btn.Size = new Size(100, 100);
-                    //    btn.Text = tproduct.Description;
-                    //    btn.Tag = tproduct;
-
-                    //    btn.Click += new EventHandler(UpdateProductList);
-
-                    //    flp.Controls.Add(btn);
-                    //}
-                    tp.Controls.Add(flp);
-                    i++;
+                        flp.Controls.Add(btn);
+                    }
                 }
-            //}
+                tp.Controls.Add(flp);
+                i++;
+            }
+
         }
 
         private void UpdateProductList(object sender, EventArgs e)
@@ -113,9 +112,9 @@ namespace Cashier
         private void FormatListItem(object sender, ListControlConvertEventArgs e)
         {
             string currentDescription = ((TblProduct)e.ListItem).Description;
-            string currentPrice = String.Format("{0:c}",((TblProduct)e.ListItem).Price);
-            //string currentDescriptionPadded = currentDescription.PadRight(30);
-            string currentDescriptionPadded = currentDescription;
+            string currentPrice = String.Format(new CultureInfo("en-PH"),"{0:c}",((TblProduct)e.ListItem).Price);
+            string currentDescriptionPadded = currentDescription.PadRight(22);
+            //string currentDescriptionPadded = currentDescription;
 
             e.Value = currentDescriptionPadded + currentPrice;
         }
@@ -123,8 +122,11 @@ namespace Cashier
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             TblProduct selectedProduct = (TblProduct)listProductsChosen.SelectedItem;
-            productsChosen.Remove(selectedProduct);
-            TransactionTotal -= (decimal)selectedProduct.Price;
+            if (selectedProduct != null)
+            {
+                productsChosen.Remove(selectedProduct);
+                TransactionTotal -= (decimal)selectedProduct.Price;
+            }
 
         }
 
