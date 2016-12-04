@@ -21,3 +21,9 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\My
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\DB.mdf
 C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\DB_log.ldf
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\Cashier.exe.manifest
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\bin\Debug\Cashier.application
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.exe.manifest
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.application
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.AddProductType.resources
+C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.SalesSummary.resources

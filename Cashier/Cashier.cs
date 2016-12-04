@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,7 @@ namespace Cashier
             CreateTabbedPanel();
             populateTabs();
             listProductsChosen.DataSource = productsChosen;
+
         }
 
         private void Cashier_Load(object sender, EventArgs e)
@@ -100,12 +102,16 @@ namespace Cashier
 
         private void UpdateInfoPanel(TblProduct tblp)
         {
+            TblProduct selectedProduct = (TblProduct)listProductsChosen.SelectedItem;
+            if (selectedProduct != null)
+            {
 
-            string currentDescriptionPadded = tblp.Description.PadRight(30);
-            string currentPrice = String.Format(new CultureInfo("en-PH"), "{0:c}", tblp.Price);
-            string output = currentDescriptionPadded + currentPrice;
+                string currentDescriptionPadded = tblp.Description.PadRight(30);
+                string currentPrice = String.Format(new CultureInfo("en-PH"), "{0:c}", tblp.Price);
+                string output = currentDescriptionPadded + currentPrice;
 
-            txtInfoPanel.Text = output;
+                txtInfoPanel.Text = output;
+            }
 
         }
 
@@ -126,25 +132,76 @@ namespace Cashier
             {
                 productsChosen.Remove(selectedProduct);
                 TransactionTotal -= (decimal)selectedProduct.Price;
+                UpdateInfoPanel((TblProduct)listProductsChosen.SelectedItem);
             }
-
+            
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
             PayDialogue payDialogue = new PayDialogue();
-            
-            payDialogue.PaymentAmount = TransactionTotal;
-            payDialogue.ShowDialog();
+
             payDialogue.PaymentMade += new PayDialogue.PaymentMadeEvent(PaymentSuccess);
+            payDialogue.PaymentAmount = TransactionTotal;
+
+            payDialogue.ShowDialog();
+          
         }
 
-        private void PaymentSuccess(object sender, PaymentMadeEventArgs e)
+        private void PrintReceipt()
+        {
+            PrintDialog printdialog = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+
+            printdialog.Document = printDoc;
+
+            printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
+            DialogResult result = printdialog.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+        }
+
+        void printDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphic = e.Graphics;
+
+            Font font = new Font("Courier New", 12);
+
+            SolidBrush brush = new SolidBrush(Color.Black);
+            float fontHeight = font.GetHeight();
+
+            int startX = 10;
+            int startY = 10;
+            int offset = 40;
+            graphic.DrawString("ITEMS PURCHASED", new Font("Courier New", 18), brush,startX, startY);
+
+            foreach(TblProduct p in productsChosen)
+            {
+                string productDescription = p.Description.PadRight(30);
+                string total = String.Format(new CultureInfo("en-PH"),"{0:c}", p.Price);
+                string productLine = productDescription + total;
+
+                graphic.DrawString(productLine, font, brush, startX, startY + offset);
+
+                offset = offset + (int)fontHeight + 5;
+            }
+            graphic.DrawString("Total:".PadRight(30) + String.Format(new CultureInfo("en-PH"), "{0:c}",TransactionTotal), font, brush, startX, startY + offset);
+        }
+
+        void PaymentSuccess(object sender, PaymentMadeEventArgs e)
         {
             TblTransaction transaction = new TblTransaction();
             transaction.TransactionDate = DateTime.Now;
-            if (e.PaymentSuccess == true) {
 
+            if (e.PaymentSuccess == true) {
+                foreach(TblProduct product in productsChosen)
+                {
+                    transaction.TblTransactionItems.Add(new TblTransactionItem() { ProductId = product.ProductId});
+                }
+                cdbe.TblTransactions.Add(transaction);
+                cdbe.SaveChanges();
             }
             
         }
@@ -152,12 +209,31 @@ namespace Cashier
         private void button1_Click(object sender, EventArgs e)
         {
             Home home = new Home();
-            home.Show();
+            
+            this.Hide();
+
+            home.ShowDialog();
+
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             clock.Text = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
+        }
+
+        private void listProductsChosen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TblProduct selectedProduct = (TblProduct)listProductsChosen.SelectedItem;
+            if (selectedProduct != null)
+            {
+
+                string currentDescriptionPadded = selectedProduct.Description.PadRight(30);
+                string currentPrice = String.Format(new CultureInfo("en-PH"), "{0:c}", selectedProduct.Price);
+                string output = currentDescriptionPadded + currentPrice;
+
+                txtInfoPanel.Text = output;
+            }
         }
     }
 }

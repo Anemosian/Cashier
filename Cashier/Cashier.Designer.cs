@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listProductsChosen = new System.Windows.Forms.ListBox();
+            this.cashierDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.txtInfoPanel = new System.Windows.Forms.TextBox();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.cashierDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clock = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cashierDBDataSetBindingSource)).BeginInit();
@@ -52,6 +52,7 @@
             this.listProductsChosen.Name = "listProductsChosen";
             this.listProductsChosen.Size = new System.Drawing.Size(325, 340);
             this.listProductsChosen.TabIndex = 0;
+            this.listProductsChosen.SelectedIndexChanged += new System.EventHandler(this.listProductsChosen_SelectedIndexChanged);
             this.listProductsChosen.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.FormatListItem);
             // 
             // tabControl1
@@ -64,11 +65,14 @@
             // 
             // txtInfoPanel
             // 
-            this.txtInfoPanel.Font = new System.Drawing.Font("Courier New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfoPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtInfoPanel.Font = new System.Drawing.Font("Courier New", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfoPanel.Location = new System.Drawing.Point(18, 13);
             this.txtInfoPanel.Name = "txtInfoPanel";
+            this.txtInfoPanel.ReadOnly = true;
             this.txtInfoPanel.Size = new System.Drawing.Size(642, 40);
             this.txtInfoPanel.TabIndex = 2;
+            this.txtInfoPanel.Text = " Next Customer";
             // 
             // btnDeleteItem
             // 
@@ -96,9 +100,11 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtTotal.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(685, 405);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(325, 29);
             this.txtTotal.TabIndex = 5;
             // 
@@ -140,6 +146,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.listProductsChosen);
             this.Name = "Cashier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier";
             this.Load += new System.EventHandler(this.Cashier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cashierDBDataSetBindingSource)).EndInit();

@@ -25,10 +25,17 @@ namespace Cashier
             dataGridView1.Columns["ProductType"].Visible = false;
             dataGridView1.Columns["TblProductType"].Visible = false;
             dataGridView1.Columns["TblTransactionItems"].Visible = false;
+            dataGridView1.Columns["ProductId"].HeaderText = "Product ID Number";
+            dataGridView1.Columns["ProductId"].DisplayIndex = 0;
+            dataGridView1.Columns["Description"].HeaderText = "Product Name";
+            dataGridView1.Columns["Description"].DisplayIndex = 1;
+            dataGridView1.Columns["Price"].DisplayIndex = 2;
+            dataGridView1.Columns["Image"].DisplayIndex = 3;
 
             cboFilter.DataSource = cdbe.TblProductTypes.ToList();
             cboFilter.DisplayMember = "Description";
             cboFilter.ValueMember = "ProductType";
+            cboFilter.SelectedIndex = -1;
         }
 
         private void FilterList(object sender, EventArgs e)

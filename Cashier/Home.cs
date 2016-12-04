@@ -29,12 +29,7 @@ namespace Cashier
             viewProducts.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Cashier cashier = new Cashier();
-            cashier.ShowDialog();
-            
-        }
+
 
         private void Home_Load(object sender, EventArgs e)
         {
@@ -43,12 +38,30 @@ namespace Cashier
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-
+            AddProductType prodTypes = new AddProductType();
+            prodTypes.Show();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCashier_Click(object sender, EventArgs e)
+        {
+            Cashier cashier = new Cashier();
+
+            this.Hide();
+
+            cashier.ShowDialog();
+
+            this.Close();
+        }
+
+        private void btnSalesSummary_Click(object sender, EventArgs e)
+        {
+            SalesSummary sales = new SalesSummary();
+            sales.Show();
         }
     }
 }

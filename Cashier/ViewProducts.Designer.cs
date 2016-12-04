@@ -38,7 +38,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 13);
@@ -49,23 +49,18 @@
             // cboFilter
             // 
             this.cboFilter.FormattingEnabled = true;
-            this.cboFilter.Location = new System.Drawing.Point(13, 343);
+            this.cboFilter.Location = new System.Drawing.Point(407, 345);
             this.cboFilter.Name = "cboFilter";
             this.cboFilter.Size = new System.Drawing.Size(256, 21);
             this.cboFilter.TabIndex = 1;
+            this.cboFilter.Text = "Select Product Type";
             this.cboFilter.SelectionChangeCommitted += new System.EventHandler(this.FilterList);
-            // 
-            // cashierDBDataSet
-            // 
-            // 
-            // 
-            // tblProductsTableAdapter
             // 
             // ViewProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 405);
+            this.ClientSize = new System.Drawing.Size(675, 388);
             this.Controls.Add(this.cboFilter);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewProducts";

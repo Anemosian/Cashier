@@ -34,11 +34,11 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.pbIcon = new System.Windows.Forms.PictureBox();
             this.lblIcon = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pbIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,15 +90,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(175, 21);
             this.cboCategory.TabIndex = 5;
-            // 
-            // pbIcon
-            // 
-            this.pbIcon.Location = new System.Drawing.Point(83, 97);
-            this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(80, 80);
-            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbIcon.TabIndex = 6;
-            this.pbIcon.TabStop = false;
+            this.cboCategory.Text = "Select Category";
             // 
             // lblIcon
             // 
@@ -132,6 +124,15 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pbIcon
+            // 
+            this.pbIcon.Location = new System.Drawing.Point(83, 97);
+            this.pbIcon.Name = "pbIcon";
+            this.pbIcon.Size = new System.Drawing.Size(80, 80);
+            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbIcon.TabIndex = 6;
+            this.pbIcon.TabStop = false;
             // 
             // AddProduct
             // 

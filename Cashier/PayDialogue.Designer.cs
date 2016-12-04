@@ -34,6 +34,7 @@
             this.txtPaymentAmount = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,9 +61,11 @@
             // 
             // txtAmountDue
             // 
+            this.txtAmountDue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtAmountDue.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmountDue.Location = new System.Drawing.Point(167, 23);
             this.txtAmountDue.Name = "txtAmountDue";
+            this.txtAmountDue.ReadOnly = true;
             this.txtAmountDue.Size = new System.Drawing.Size(144, 26);
             this.txtAmountDue.TabIndex = 2;
             // 
@@ -77,9 +80,9 @@
             // btnPay
             // 
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(69, 121);
+            this.btnPay.Location = new System.Drawing.Point(13, 118);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(194, 36);
+            this.btnPay.Size = new System.Drawing.Size(164, 36);
             this.btnPay.TabIndex = 4;
             this.btnPay.Text = "&Confirm";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -92,11 +95,23 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 89);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(233, 118);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 36);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // PayDialogue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 166);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.txtPaymentAmount);
             this.Controls.Add(this.txtAmountDue);
@@ -118,5 +133,6 @@
         private System.Windows.Forms.TextBox txtPaymentAmount;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

@@ -28,6 +28,7 @@ namespace Cashier
             cboCategory.DataSource = cdbe.TblProductTypes.ToList();
             cboCategory.DisplayMember = "Description";
             cboCategory.ValueMember = "ProductType";
+            cboCategory.SelectedIndex = -1;
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -51,23 +52,31 @@ namespace Cashier
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            TblProduct product = new TblProduct();
+            try
+            {
 
-            product.Description = txtDescription.Text;
+                TblProduct product = new TblProduct();
 
-            product.Price = decimal.Parse(txtPrice.Text);
+                product.Description = txtDescription.Text;
 
-            product.Image = bytePicData;
+                product.Price = decimal.Parse(txtPrice.Text);
 
-            product.ProductType = (int)cboCategory.SelectedValue;
+                product.Image = bytePicData;
 
-            cdbe.TblProducts.Add(product);
+                product.ProductType = (int)cboCategory.SelectedValue;
 
-            cdbe.SaveChanges();
+                cdbe.TblProducts.Add(product);
 
-            MessageBox.Show("Item Saved!");
+                cdbe.SaveChanges();
 
-            this.Close();
+                MessageBox.Show("Item Saved!");
+
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Please fill all fields with the proper information.");
+            }
 
 
 
