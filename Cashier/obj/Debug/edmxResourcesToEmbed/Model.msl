@@ -4,6 +4,7 @@
     <EntitySetMapping Name="TblProducts">
       <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblProduct)">
         <MappingFragment StoreEntitySet="TblProducts">
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Description" ColumnName="Description" />

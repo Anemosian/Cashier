@@ -9,6 +9,7 @@
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="ProductType" Type="int" Nullable="false" />
     <Property Name="Image" Type="image" />
+    <Property Name="Availability" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblProductTypes">
     <Key>

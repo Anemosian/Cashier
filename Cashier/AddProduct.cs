@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Cashier
 {
@@ -20,6 +22,7 @@ namespace Cashier
         private CashierDBEntities cdbe = new CashierDBEntities();
 
         private Byte[] bytePicData;
+        private Byte[] productIcon;
 
         public AddProduct()
         {
@@ -46,8 +49,45 @@ namespace Cashier
 
                 MemoryStream stmPicData = new MemoryStream(bytePicData);
 
-                pbIcon.Image = Image.FromStream(stmPicData);
+                Image rawIcon = Image.FromStream(stmPicData);
+
+                pbIcon.Image = rawIcon;
+
+                Image resizedIcon = ResizeImage(rawIcon, 100, 100);
+
+                productIcon = ImageToByte(resizedIcon);
             }
+        }
+
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
+
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -61,9 +101,11 @@ namespace Cashier
 
                 product.Price = decimal.Parse(txtPrice.Text);
 
-                product.Image = bytePicData;
+                product.Image = productIcon;
 
                 product.ProductType = (int)cboCategory.SelectedValue;
+
+                product.Availability = 1;
 
                 cdbe.TblProducts.Add(product);
 

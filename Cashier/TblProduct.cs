@@ -25,6 +25,7 @@ namespace Cashier
         public string Description { get; set; }
         public int ProductType { get; set; }
         public byte[] Image { get; set; }
+        public int Availability { get; set; }
     
         public virtual TblProductType TblProductType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

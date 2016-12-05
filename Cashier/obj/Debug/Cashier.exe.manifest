@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cashier.exe" size="119216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cashier.exe" size="122800">
       <assemblyIdentity name="Cashier" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>a9dD/fINdkDbMb5P8t8sqVh0iV4WCtFrtrXli6wLcxk=</dsig:DigestValue>
+        <dsig:DigestValue>glnlqEKYl0VqUWbg+ppBm5+WCBD7AUthPFQbQrKttCs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -116,7 +116,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iwITzsu7JkLugngI+Cn0cWNQ7+ZrCwbV2iDEg+Adm8g=</dsig:DigestValue>
+      <dsig:DigestValue>53Vf/Lqo6mVvzrmxhUEt4A6qho5FK3nSUSUj2hS4QI4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DB_log.ldf" size="8388608" writeableType="applicationData">
@@ -125,7 +125,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>H8U5QwB58yDM+J0W82i1nx+lRJ0mycHqg+bIlCs0LrE=</dsig:DigestValue>
+      <dsig:DigestValue>ndmTHZrMjHm5yZQn2s/9flMaSuR6N4NYz7t9PR0K+UQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Model.Context.tt" size="22929">

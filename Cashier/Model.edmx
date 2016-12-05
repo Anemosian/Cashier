@@ -14,6 +14,7 @@
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="ProductType" Type="int" Nullable="false" />
           <Property Name="Image" Type="image" />
+          <Property Name="Availability" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TblProductTypes">
           <Key>
@@ -106,6 +107,7 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="TblProductType" Relationship="Self.FK_ProductType" FromRole="TblProducts" ToRole="TblProductTypes" />
           <NavigationProperty Name="TblTransactionItems" Relationship="Self.FK_TblProductTblTransactionItem" FromRole="TblProducts" ToRole="TblTransactionItems" />
+          <Property Name="Availability" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblProductType">
           <Key>
@@ -196,7 +198,8 @@
     <EntitySetMapping Name="TblProducts">
       <EntityTypeMapping TypeName="IsTypeOf(CashierDBModel.TblProduct)">
         <MappingFragment StoreEntitySet="TblProducts">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ProductType" ColumnName="ProductType" />

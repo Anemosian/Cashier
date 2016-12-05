@@ -66,10 +66,14 @@ namespace Cashier
 
                 foreach (TblProduct tproduct in cdbe.TblProducts)
                 {
-                    if (tproduct.ProductType == i)
+                    if (tproduct.ProductType == i && tproduct.Availability == 1)
                     {
                         Button btn = new Button();
-
+                        if (tproduct.Image != null)
+                        {
+                            btn.BackgroundImage = (Bitmap)((new ImageConverter()).ConvertFrom(tproduct.Image));
+                            btn.BackgroundImageLayout = ImageLayout.Stretch;
+                        }
                         btn.Size = new Size(100, 100);
                         btn.Text = tproduct.Description;
                         btn.Tag = tproduct;
@@ -145,7 +149,6 @@ namespace Cashier
             payDialogue.PaymentAmount = TransactionTotal;
 
             payDialogue.ShowDialog();
-          
         }
 
         private void PrintReceipt()
@@ -176,7 +179,9 @@ namespace Cashier
             int startY = 10;
             int offset = 40;
             graphic.DrawString("ITEMS PURCHASED", new Font("Courier New", 18), brush,startX, startY);
-
+            //receipt number
+            //date and time
+            
             foreach(TblProduct p in productsChosen)
             {
                 string productDescription = p.Description.PadRight(30);
@@ -203,6 +208,12 @@ namespace Cashier
                 }
                 cdbe.TblTransactions.Add(transaction);
                 cdbe.SaveChanges();
+
+                PrintReceipt();
+
+                txtInfoPanel.Text = " Next Customer";
+                productsChosen.Clear();
+                TransactionTotal = 0;
             }
             
         }

@@ -85,12 +85,13 @@
             // 
             // cboCategory
             // 
+            this.cboCategory.BackColor = System.Drawing.SystemColors.Info;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(83, 68);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(175, 21);
             this.cboCategory.TabIndex = 5;
-            this.cboCategory.Text = "Select Category";
             // 
             // lblIcon
             // 

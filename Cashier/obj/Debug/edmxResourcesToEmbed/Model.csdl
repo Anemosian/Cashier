@@ -11,6 +11,7 @@
     <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="TblProductType" Relationship="Self.FK_ProductType" FromRole="TblProducts" ToRole="TblProductTypes" />
     <NavigationProperty Name="TblTransactionItems" Relationship="Self.FK_TblProductTblTransactionItem" FromRole="TblProducts" ToRole="TblTransactionItems" />
+    <Property Name="Availability" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TblProductType">
     <Key>
