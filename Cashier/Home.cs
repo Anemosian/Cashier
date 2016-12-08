@@ -15,6 +15,7 @@ namespace Cashier
         public Home()
         {
             InitializeComponent();
+            btnSalesSummary.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

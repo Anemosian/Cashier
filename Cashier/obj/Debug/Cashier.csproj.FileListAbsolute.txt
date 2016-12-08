@@ -27,3 +27,6 @@ C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Ca
 C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.application
 C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.AddProductType.resources
 C:\Users\User\documents\visual studio 2015\Projects\Cashier\Cashier\obj\Debug\Cashier.SalesSummary.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\RdlCompile.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Cashier\Cashier\obj\Debug\RdlCompile.compiled
